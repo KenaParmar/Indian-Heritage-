@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="profile.css">
+    <link rel="stylesheet" type="text/css" href="home.css">
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        #neon-sign {
+            position:absolute;
+            left:35vw;
+            top:3vh;
+            color: beige;
+            font-size: 70px;
+            text-shadow: 0 0 10px #ccff00 ;
+        }
+
+        #page1 {
+            background-image: url('images/nightsky.png');
+            width: 100vw;
+            height: 100vh;
+            -webkit-backdrop-filter: blur(5px);
+            backdrop-filter: blur(5px);
+            overflow: hidden;
+            border: none;
+        }
+       
+        #vd {
+            width: 80vw;
+            height: 90vh;
+            position: absolute;
+            top: 10vh;
+            left: 10vw;
+            border: 1px lavender;
+            border-radius: 5px;
+        }
+       
+        #swiggle1 {
+            position: absolute;
+            top: 0;
+            left: -5vw;
+            width: 20vw;
+            height: 100vh;
+        }
+        #swiggle2 {
+            position: absolute;
+            top: -1vh;
+            left: -4vw;
+            width: 40vw;
+            height: 20vh;
+        }
+        #swiggle3 {
+            position: absolute;
+            top: -2vh;
+            right: 2vw;
+            width: 30vw;
+            height: 20vh;
+        }
+        #swiggle4 {
+            position: absolute;
+            top: 2vh;
+            right:-5vw;
+            width: 20vw;
+            height: 50vh;
+        }
+        #menu {
+            height: fit-content;
+            display: flex;
+            flex-direction: column;
+            align-items: left;
+            width: 7%;
+            overflow-x: visible;
+            position: absolute;
+            top: 15vh;
+            left: 7vw;
+        }
+        a {
+            text-decoration: none;
+            color: black;
+        }
+        .nav {
+            height: 50px;
+            width: 80%;
+            position: relative;
+            margin-left: 10%;
+            overflow: hidden;
+            text-align: center;
+            color: rgb(156, 228, 240);
+            z-index: 200;
+            transition: width 0.5s, background-color 0.5s, border-radius 0.5s;
+        }
+        .nav:hover {
+            width: 300px;
+            background-color: rgb(0, 119, 127);
+            border-radius: 0px 100px 100px 0px;
+        }
+        .nav img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 0.5s;
+        }
+        .nav:hover img {
+            opacity: 0;
+            visibility: hidden;
+        }
+        .nav span {
+            opacity: 0;
+            font-size: 18px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            visibility: hidden;
+            transition: opacity 0.5s, font-size 0.5s;
+            text-align: center;
+        }
+        .nav:hover span {
+            opacity: 1;
+            visibility: visible;
+            font-size: 40px;
+        }
+        .hover-text {
+            display: inline-block;
+            position: relative;
+        }
+        .line {
+            display: inline-block;
+            width: 0;
+            height: 2px;
+            background-color: #333;
+            transition: width 0.5s;
+            vertical-align: middle;
+        }
+        .text {
+            display: inline-block;
+            transition: transform 0.5s;
+            vertical-align: middle;
+        }
+        .hover-text:hover .line {
+            width: 40px;
+        }
+        .hover-text:hover .text {
+            transform: translateX(10px);
+        }
+        #branch1{
+            position: absolute;
+            width: 0.7vw;
+            height: 110vh;
+            transform: rotate(5deg);
+            left:5vw;
+            background: #016948;
+            border: none;
+        }
+        #branch2{
+            position: absolute;
+            width: 0.4vw;
+            height:55vh;
+            left:22vw;
+            background: #016948;
+            border: 0;
+            top:-23vh;
+            transform: rotate(80deg);
+
+        }
+        #branch3{
+            position: absolute;
+            width: 0.4vw;
+            height:55vh;
+            right: 15vw;
+            background: #016948;
+            border: 0;
+            top:-20.5vh;
+            transform: rotate(-80deg);
+
+        }
+
+        #branch4{
+            position: absolute;
+            width: 0.7vw;
+            height: 110vh;
+            transform: rotate(-5deg);
+            right:5vw;
+            background: #016948;
+            border: none;
+        }
+
+       
+.fireflies1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+}
+
+.fireflies1 .firefly {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #ccff00;
+    opacity: 0;
+    animation: firefly1 5s infinite;
+}
+
+.fireflies1 .firefly:nth-child(1) {
+    top: 5%;
+    left: 10%;
+}
+
+.fireflies1 .firefly:nth-child(2) {
+    top: 6%;
+    left: 5%;
+}
+
+.fireflies1 .firefly:nth-child(3) {
+    top: 4%;
+    left: 93%;
+}
+
+.fireflies1 .firefly:nth-child(4) {
+    top: 15%;
+    left: 95.5%;
+}
+
+.fireflies1 .firefly:nth-child(5) {
+    top: 30%;
+    left: 2%;
+}
+
+.fireflies1 .firefly:nth-child(6) {
+    top: 40%;
+    left: 4%;
+}
+
+.fireflies1 .firefly:nth-child(7) {
+    top: 10%;
+    left: 97%;
+}
+
+.fireflies1 .firefly:nth-child(8) {
+    top: 90%;
+    left: 97%;
+}
+
+.fireflies1 .firefly:nth-child(9) {
+    top: 50%;
+    left: 91%;
+}
+
+.fireflies1 .firefly:nth-child(10) {
+    top: 40%;
+    left: 93%;
+}
+
+.fireflies1 .firefly:nth-child(11) {
+    top: 6%;
+    left: 35%;
+}
+.fireflies1 .firefly:nth-child(12) {
+    top: 2%;
+    left: 56%;
+}
+
+.fireflies2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    animation: fireflies2 10s infinite;
+}
+
+.fireflies2 .firefly {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #ccff00;
+    opacity: 0;
+    animation: firefly2 5s infinite;
+}
+
+.fireflies2 .firefly:nth-child(1) {
+    top: 20%;
+    left: 7%;
+}
+
+.fireflies2 .firefly:nth-child(2) {
+    top: 60%;
+    left: 6%;
+}
+
+.fireflies2 .firefly:nth-child(3) {
+    top: 70%;
+    left: 3%;
+}
+
+.fireflies2 .firefly:nth-child(4) {
+    top: 80%;
+    left: 10%;
+}
+
+.fireflies2 .firefly:nth-child(5) {
+    top: 56%;
+    left: 4%;
+}
+
+.fireflies2 .firefly:nth-child(6) {
+    top: 30%;
+    left: 93%;
+}
+
+.fireflies2 .firefly:nth-child(7){
+    top: 40%;
+    left: 96%;
+}
+
+.fireflies2 .firefly:nth-child(8) {
+    top: 60%;
+    left: 92.3%;
+}
+
+.fireflies2 .firefly:nth-child(9) {
+    top: 84%;
+    left: 94%;
+}
+
+.fireflies2 .firefly:nth-child(10) {
+    top: 89%;
+    left: 97%;
+}
+
+.fireflies2 .firefly:nth-child(11) {
+    top: 4%;
+    left: 40%;
+}
+
+.fireflies2 .firefly:nth-child(12) {
+    top: 5.6%;
+    left: 20%;
+}
+
+.fireflies3 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    animation: fireflies3 10s infinite;
+}
+
+.fireflies3 .firefly {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #ccff00;
+    opacity: 0;
+    animation: firefly3 5s infinite;
+}
+
+.fireflies3 .firefly:nth-child(1) {
+    top: 15%;
+    left: 11%;
+}
+
+.fireflies3 .firefly:nth-child(2) {
+    top: 30%;
+    left: 89%;
+}
+
+.fireflies3 .firefly:nth-child(3) {
+    top: 35%;
+    left: 6%;
+}
+
+.fireflies3 .firefly:nth-child(4) {
+    top: 47%;
+    left: 93.5%;
+}
+
+.fireflies3 .firefly:nth-child(5) {
+    top: 56%;
+    left: 7.7%;
+}
+
+.fireflies3 .firefly:nth-child(6) {
+    top: 83%;
+    left: 7%;
+}
+.fireflies3 .firefly:nth-child(7) {
+    top: 74%;
+    left: 94.6%;
+}
+
+.fireflies3 .firefly:nth-child(8) {
+    top: 26%;
+    left: 98%;
+}
+
+.fireflies3 .firefly:nth-child(9) {
+    top: 86%;
+    left: 99%;
+}
+
+.fireflies3 .firefly:nth-child(10) {
+    top: 22%;
+    left: 92%;
+}
+
+.fireflies3 .firefly:nth-child(11) {
+    top: 8%;
+    left: 83%;
+}
+
+.fireflies3 .firefly:nth-child(12) {
+    top: 7%;
+    left: 70%;
+}
+
+@keyframes firefly1 {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+}
+
+@keyframes firefly2 {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+}
+
+@keyframes firefly3 {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.5);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+}
+
+@keyframes fireflies2 {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fireflies3 {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+#about-us{
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    left: 0;
+    top: 100vh;
+    background: linear-gradient(to bottom, #011529, #003366, #000033);
+}
+#Abt1{
+  top: 12vh;
+  left: 10vw;
+  position: absolute;
+  z-index: 300;
+  float: left;
+}
+#Abt1 img{
+  height: 50vh;
+  width: 43vw;
+  opacity: 1;
+  
+}
+
+#Abt2{
+  top: 30vh;
+  left: 45vw;
+  float: right;
+  position: absolute;
+  z-index: 200;
+
+}
+
+#Abt2 img{
+  height: 50vh;
+  width: 43vw;
+  object-fit: fill;
+  opacity: 0.8;
+}
+#Abt3{
+  top: 73vh;
+  left: 57vw;
+  float: right;
+  position: absolute;
+  z-index: 150;
+}
+#about-us h1{
+  margin-left: 65vw;
+  color: beige;
+  font-size: 60px;
+  margin-top: 7%;
+  text-shadow: 0 0 10px #ccff00;
+}
+.ig{
+    float:left;
+}
+
+#Abt3 img{
+  object-fit: fill;
+  opacity: 0.7;
+  height: 25vh;
+  width: 15vw;
+  background-color: rgb(200, 42, 87);
+}
+#infoab{
+    color: beige;
+    margin-top: 45vh;
+    margin-left: 10vw;
+}
+
+.hero {
+        background-color:  #DBAFA0;
+        color: beige;
+        text-align: center;
+        padding: 60px 0;
+        background-image: linear-gradient(rgba(112, 66, 100, 0.7), rgba(112, 66, 100, 0.7)), url(images/cont3.jpg);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        position: absolute;
+        height: 100vh;
+        top: 200vh;
+        width: 100vw;
+    }
+    .hero h1 {
+        font-size: 60px;
+        margin-bottom: 20px;
+        margin-top: 40vh;
+        color: cadetblue;
+        text-shadow: 0 0 5px rgba(0, 0, 0, 0.58);
+    }
+       
+        
+    </style>
+</head>
+<body>
+    <section id="page1">
+    <svg id="swiggle1" viewBox="0 0 100 1000" preserveAspectRatio="xMidYMid meet">
+        <path d="M 50 0 C 180 150, -30 250, 50 350, 180 450, -30 550, 50 650, 180 750, -30 850, 50 950, 180 1050" 
+      stroke="#006a71" stroke-width="5" fill="none" transform="rotate(5 50 500)"/>
+    </svg>
+    <svg id="swiggle2" viewBox="0 0 400 100">
+        <path d="M 0 50 C 50 40, 150 60, 250 40, 350 60, 450 40, 400 50" 
+              stroke="#006a71" stroke-width="3" fill="none" transform="rotate(350 200 50)"/>
+    </svg>
+    <svg id="swiggle3" viewBox="0 0 400 100">
+        <path d="M 400 50 C 350 40, 250 60, 200 40, 150 60, 100 40, 50 50" 
+              stroke="#006a71" stroke-width="3" fill="none" transform="rotate(10 200 50)"/>
+    </svg>
+    <svg id="swiggle4" viewBox="0 0 100 500">
+        <path d="M 50 0 C 150 100, -50 200, 50 300, 150 400, -50 500, 50 600, 150 700, -50 800, 50 900, 150 1000" 
+              stroke="#006a71" stroke-width="5" fill="none" transform="rotate(-10 50 500)"/>
+    </svg>
+    <div id="branch1"><hr></div>
+    <div id="branch2"><hr></div>
+    <div id="branch3"><hr></div>
+    <div id="branch4"><hr></div>
+
+<div class="fireflies1">
+    <div class="firefly"></div>
+    <div class="firefly"></div>
+    <div class="firefly"></div>
+    <div class="firefly"></div>
+    <div class="firefly"></div>
+    <div class="firefly"></div>
+    <div class="firefly"></div>
+    <div class="firefly"></div>
+    <div class="firefly"></div>
+    <div class="firefly"></div>
+    <div class="firefly"></div>
+    <div class="firefly"></div>
+</div>
+
+<div class="fireflies2">
+    <div class="firefly"></div>
+    <div class="firefly"></div>
+    <div class="firefly"></div>
+    <div class="firefly"></div>
+    <div class="firefly"></div>
+    <div class="firefly"></div>
+    <div class="firefly"></div>
+    <div class="firefly"></div>
+    <div class="firefly"></div>
+    <div class="firefly"></div>
+    <div class="firefly"></div>
+    <div class="firefly"></div>
+</div>
+
+<div class="fireflies3">
+    <div class="firefly"></div>
+    <div class="firefly"></div>
+    <div class="firefly"></div>
+    <div class="firefly"></div>
+    <div class="firefly"></div>
+    <div class="firefly"></div>
+    <div class="firefly"></div>
+    <div class="firefly"></div>
+    <div class="firefly"></div>
+    <div class="firefly"></div>
+    <div class="firefly"></div>
+    <div class="firefly"></div>
+</div>
+
+
+    <div id="movie">
+        <video id="vd" autoplay loop playsinline muted>
+            <source src="images/video_20240804_034648_edit.mp4" type="video/mp4">
+            <source src="images/monument.webm" type="video/webm">
+            Your browser does not support the video tag.
+        </video>
+        
+    </div>
+    <div id="menu">
+        <div class="nav">
+            <img src="images/minar1.jpg" alt="Menu image" />
+            <span><a href="dance try.html">Dance</a></span>
+        </div><br>
+        <div class="nav">
+            <img src="images/minar2.jpg" alt="Menu image" />
+            <span><a href="festivals.html">Festival</a></span>
+        </div><br>
+        <div class="nav">
+            <img src="images/minar3.jpg" alt="Menu image" />
+            <span><a href="food.html">Food</a></span>
+        </div><br>
+        <div class="nav">
+            <img src="images/minar4.jpg" alt="Menu image" />
+            <span><a href="music.html">Music</a></span>
+        </div><br>
+        <div class="nav">
+            <img src="images/minar5.jpg" alt="Menu image" />
+            <span><a href="paintings.html">Art</a></span>
+        </div>
+    </div>
+    <div id="profile-button" onclick="toggleClock()" >
+        <img src="images/moon.png">
+       </div>
+       <div id="profile-box">
+         <div id="prof-pic">
+           <img src="images/profile9.png"  alt="Image" style="border-radius: 50%; width: 65px; height: 65px;">
+         </div><br><br>&nbsp;&nbsp;&nbsp;&nbsp;
+         
+         <hr width="95%">
+         <br>
+         <div style="float: left; ">User Name: &nbsp;&nbsp;</div><div id="name">Guest148 </div><br>
+         <div class="prof-menu">
+            <br>
+            <a href="editprofile.html">
+         Edit Profile</a>
+         </div>
+         <div class="prof-menu"><br>
+            <a href="hidden places.html">
+         Hidden Places</a>
+         </div>
+         <div class="prof-menu"><br>
+            <a href="quizc.html">
+         Quiz</a>
+         </div>
+         <div class="prof-menu"><br>
+            <a href="monuments final.html">
+         Wanna explore more</a>
+         </div><br>
+         <div style="text-align: center;" id="sign">
+         ---<span ><a href="tp.html">Sign in</a></span>-or-<span ><a href="signup.html">Sign up</a></span>---
+         </div>
+         </div>
+
+         <div id="neon-sign"><span>I N D </span><span>H E R I T A</span></div>
+</section>
+<script>
+    function toggleClock() {
+    var myClock = document.getElementById('profile-box');
+
+    var displaySetting = myClock.style.display;
+
+    var clockButton = document.getElementById('profile-button');
+
+
+    if (displaySetting == 'block') {
+
+      myClock.style.display = 'none';
+     
+    } else {
+  
+      myClock.style.display = 'block';
+    }
+   
+    sign.style.textShadow = '0 0 10px rgba(246, 163, 39, 0.801)';
+
+setTimeout(function() {
+    sign.style.textShadow = '0 0 10px #ccff00';
+}, 500);
+
+  }
+      </script>
+<section id="about-us">
+    <div id="Abt1">
+      <img src="images/abt1.jpeg" alt="image">
+    </div>
+    <h1>About Us</h1>
+    <div id="Abt2">
+      <img src="images/abt2.jpeg" alt="image">
+    </div>
+    <div id="infoab">
+    <p>
+      <h2 >IndHerita</h2>
+        your gateway to the vibrant tapestry of Indian heritage and culture.<br>
+        Dive into a treasure trove of stories, traditions, and artistic expressions<br>
+        that define the essence of India. Join us as we celebrate and explore the<br>
+        rich diversity that makes India truly unique. Discover, learn, and embrace<br>
+        the beauty of Indian culture with us.
+    </p>
+  </div>
+  </section>
+  
+  <section class="hero">
+    <h1><a href="contact us.html">Contact Us</a></h1>
+    <p>We'd love to hear from you. Get in touch with us for any inquiries.</p>
+  <script>
+    let currentPage = 1;
+    const sections = document.querySelectorAll('section');
+    const totalSections = sections.length;
+    const header = document.querySelector('h1 span');
+    const button = document.getElementById('btn');
+
+    // Function to update the header number
+    function updateHeaderNumber() {
+        header.textContent = currentPage;
+    }
+
+    // Debounce function to limit the rate of scroll event handling
+    function debounce(func, wait) {
+        let timeout;
+        return function () {
+            const context = this, args = arguments;
+            clearTimeout(timeout);
+            timeout = setTimeout(() => func.apply(context, args), wait);
+        };
+    }
+
+    // Function to scroll to the next or previous section
+    function scrollToSection(e) {
+        e.preventDefault();
+        const delta = Math.sign(e.deltaY);
+        currentPage += delta;
+        if (currentPage < 1) currentPage = 1;
+        if (currentPage > totalSections) currentPage = totalSections;
+        sections[currentPage - 1].scrollIntoView({ behavior: 'smooth' });
+        updateHeaderNumber();
+    }
+
+    // Attach debounced scroll event listener to the window
+    window.addEventListener('wheel', debounce(scrollToSection, 100));
+
+    // Reset to the first section on button click
+    button.addEventListener('click', () => {
+        currentPage = 1;
+        sections[0].scrollIntoView({ behavior: 'smooth' });
+        updateHeaderNumber();
+    });
+</script>
+</body>
+</html>
