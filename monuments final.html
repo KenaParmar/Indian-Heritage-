@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monuments</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios@0.21.1/dist/axios.min.js"></script>
+    <style>
+
+        button{
+            background-color: rgba(210, 180, 140, 0.423);
+            width: 5vw;
+            height: 3vh;
+            border: 2px solid rgb(239, 172, 72);
+        }
+        body{
+            background-color: rgb(63, 43, 28);
+        }
+        .checkpoint {
+            position: absolute;
+            top: 219px;
+            /* adjust to match the coords */
+            left: 320px;
+            /* adjust to match the coords */
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: crimson;
+            z-index: 1;
+        }
+        #block{
+            width: 40vw;
+            height: 100vh;
+            top: 0%;
+            left:55vw;
+            position: absolute;
+            float: left;
+        }
+
+        #card{
+            width: 43.7vw;
+            height: 60vh;
+            position:absolute;
+            z-index: -1;
+            top: 20vh;
+            left:55vw;
+            background-color: rgb(255, 255, 255);
+            color: rgb(77, 38, 18);
+        }
+
+.plane-container {
+    top: 50%;
+    position: absolute;
+    left: 0;
+    float: left;
+    transform: translateY(-50%);
+    animation: fly 5s;
+}
+
+.plane {
+    width: 30px;
+    height: 30px;
+    background-color: blue;
+    border-radius: 50%;
+}
+
+@keyframes fly {
+    0% {
+        left: 0;
+        top: 30%;
+    }
+    15% {
+        left: 15%;
+        top: calc(30% - 5%);
+    }
+    30% {
+        left: 30%;
+        top: calc(50% + 5%);
+    }
+
+    /* Circular path (3s - 6s) */
+    30% {
+        left: 30%;
+        top: calc(50% + 5%);
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    50% {
+        left: calc(40% + 10%);
+        top: calc(50% + 20%);
+        transform: translate(-50%, -50%) rotate(90deg);
+    }
+    70% {
+        left: calc(40% + 10%);
+        top: calc(50% - 20%);
+        transform: translate(-50%, -50%) rotate(180deg);
+    }
+
+    
+    70% {
+        left: calc(40% + 10%);
+        top: calc(50% - 20%);
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+    100% {
+        left: 100%;
+        top: calc(50% - 20%);
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+}
+#play3{
+    height: 100%;
+    width: 100%;
+    text-align: center;
+}
+
+
+    </style>
+</head>
+
+<body>
+    <img src="images/map checkpoint.jpg" usemap="#image-map">
+<div> 
+<map name="image-map" style="float: left;">
+    <area target="_blank" alt="Taj Mahal" title="Taj Mahal" href="Taj mahal.html" coords="319,212,11" shape="circle">
+    <area target="_blank" alt="Rani Ki Vav" title="Rani Ki Vav" href="ranikivaav.html" coords="192,328,15" shape="circle">
+    <area target="_blank" alt="Golden Temple" title="Amritsar" href="golden.html" coords="276,152,11" shape="circle">
+    <area target="_blank" alt="Char minar" title="Char minar" href="charminar.html" coords="338,450,11" shape="circle">
+    <area target="_blank" alt="Hawa Mahal" title="Hawa Mahal" href="Hawa mahal.html" coords="247,258,14" shape="circle">
+    <area target="_blank" alt="Khajuraho" title="Khajuraho" href="khajuraho.html" coords="361,313,12" shape="circle">
+    <area target="_blank" alt="Hampi" title="Hampi" href="hampi.html" coords="289,531,14" shape="circle">
+    <area target="_blank" alt="Sun Tempe of Konark" title="Sun Tempe of Konark" href="konark.html" coords="479,414,15" shape="circle">
+</map>
+
+
+<div></div>
+<div id="card">
+    <div id="play2">
+        <img src="images/compass.jpg" style="width: 50%;height: 80%; margin-top:10%;margin-left: 5%;float: left; ">
+        <h1 style="float: left;  margin-left: 60%; margin-top: -30vh;">BUT WHERE TO GO ?</h1>
+        
+    </div>
+    <div id="play3">
+
+
+    </div>
+</div>
+<button onclick="getLocation()" style="position: absolute; margin-left: 80%; margin-top: -20%; ">click me</button>
+<script>
+//     setTimeout(() => {
+//   //document.querySelector('.plane-container').style.display = 'none';
+//   document.querySelector('#play2').style.display='block';
+//   document.querySelector('button').style.display='block';
+
+// }, 5000);
+
+// setTimeout(() => {
+//     document.querySelector('#play2').style.display='none';
+
+// },7000)
+
+
+// function getLocation() {
+//           if (navigator.geolocation) {
+//             navigator.geolocation.getCurrentPosition(position => {
+//               const lat = position.coords.latitude;
+//               const lng = position.coords.longitude;
+//               findState(lat, lng).then(state,region,country => {
+//                 x.innerHTML = 'the nearest from your location:'<br> +state +','+ region+','+country;
+//               });
+//             });
+//           } else {
+//             x.innerHTML = "Geolocation is not supported by this browser.";
+//           }
+//         }
+// async function findState(lat, lng) {
+//           const url = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}&zoom=18&addressdetails=1`;
+//           const response = await axios.get(url);
+//           const data = response.data;
+//           const address = data.address;
+//           let state = '';
+//           let region = '';
+//           let country = '';
+//           if (address.state) {
+//             state = address.state;
+//           } if (address.region) {
+//             region = address.region;
+//           }  if (address.county) {
+//             country = address.county;
+//           }
+//           return state,region,country;
+// }
+
+
+    // const x = document.getElementById("play3");
+
+    // function getLocation() {
+    //     document.querySelector('#play2').style.display='none';
+
+    //     if (navigator.geolocation) {
+    //         navigator.geolocation.getCurrentPosition(position => {
+    //             const lat = position.coords.latitude;
+    //             const lng = position.coords.longitude;
+    //             findState(lat, lng).then(data => {
+    //                 x.innerHTML = `The nearest from your location: <br> ${data.state}, ${data.region}, ${data.country}`;
+    //             }).catch(error => {
+    //                 x.innerHTML = "Error: " + error.message;
+    //             });
+    //         });
+    //     } else {
+    //         x.innerHTML = "Geolocation is not supported by this browser.";
+    //     }
+    // }
+
+    const x = document.getElementById("play3");
+
+function getLocation() {
+
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(position => {
+      const lat = position.coords.latitude;
+      const lng = position.coords.longitude;
+      findState(lat, lng).then(data => {
+        // x.innerHTML = `The nearest from your location: <br> ${data.state}`;
+        if(data.state=='Gujarat'){
+            window.open("gujarat.html","_parent");
+        }
+        else if(data.state=='Maharastra'){
+            window.open("maharashtra.html","_parent");
+        }
+        else if(data.state=='Madhya Pradesh'){
+            window.open("madhya pradesh.html","_parent");
+        }
+        else if( data.state=='Rajasthan'){
+            window.open("rajasthan.html","_parent");
+        }
+      }).catch(error => {
+        x.innerHTML = "Error: " + error.message;
+      });
+    });
+  } else {
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+
+    async function findState(lat, lng) {
+        const url = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}&zoom=18&addressdetails=1`;
+        try {
+            const response = await axios.get(url);
+            const data = response.data;
+            const address = data.address;
+            let state = '';
+            let region = '';
+            let country = '';
+            if (address.state) {
+                state = address.state;
+            }
+            if (address.region) {
+                region = address.region;
+            }
+            if (address.county) {
+                country = address.county;
+            }
+            return { state, region, country };
+        } catch (error) {
+            throw error;
+        }
+    }
+
+</script>
+
+</body>
+
+</html>
