@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>embroidery</title>
+    <style>
+        body{
+            height: 100vh;
+            background-color: rgb(192, 200, 179);
+            width: 100vw;
+            overflow-x: hidden;
+        }
+        #main{
+            width: 100vw;
+            height: 10vh;
+            background-color: rgb(192, 200, 179);
+            font-family: "Lucida Sans Typewriter", 
+            "Lucida Console", monaco, "Bitstream Vera Sans Mono",monospace;
+            font-size: 14px;
+            font-style: normal;
+            font-variant: normal;
+            font-weight: 400;
+            line-height: 20px; 
+            text-align: center;
+            font-size: 15px;
+
+        }
+
+        .tags{
+            float: left;
+            height: 100%;
+            width: 15%;
+            background-color: rgb(192, 200, 179);
+        }
+
+        .hra{
+            display: none;
+            width: 90px;
+            height:3px;
+            background-color: crimson;
+        }
+        a{
+            text-decoration: none;
+            color: black;
+        }
+        #box{
+            height:90vh;
+            width: 100vw;
+            overflow: hidden;
+        }
+        #images{
+            height:90vh;
+            width:450vw;
+            z-index: 100;
+            float:left;
+        }
+
+         #infocard{
+            height:90vh;
+            width: 45vw;
+            position: absolute;
+            top: 11vh;
+            left: 45.5vw;
+            z-index: 200;
+            background-color: rgb(79,20,23);
+         }
+            /*
+            #arrow{
+            color: antiquewhite;
+            font-size: 60px;
+            cursor: pointer; /* Add this to change the cursor to a pointer on hover */
+
+        .controls {
+        position: absolute;
+        top:95%;
+        transform: translateY(-50%);
+        width: 45vw;
+        height: fit-content;
+        justify-content: space-between;
+        background-color: rgb(97,22,27);
+        }
+
+.prev-arrow {
+  background-color: transparent;
+  border: none;
+  padding: 10px;
+  font-size: 40px;
+  cursor: pointer;
+  float: left;
+  background-color: rgb(225,126,46);
+
+}
+.next-arrow {
+  background-color: transparent;
+  border: none;
+  padding: 10px;
+  font-size: 40px;
+  cursor: pointer;
+  float: left;
+  background-color: rgb(225,126,46);
+}
+
+        .prev-arrow:hover,.next-arrow:hover{
+            color: rgb(246, 184, 107);
+            text-shadow: 5px rgb(246, 184, 107);
+        }
+
+        #slider{
+            height:90vh;
+            width:450vw;
+        }
+        #slider.animate{
+            animation: my_animeright 1s;
+            animation-fill-mode: forwards;
+        }
+       
+
+        @keyframes my_animeright{
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-45vw);
+            }
+        }
+
+     .infotext-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  transform: translateX(60vw); 
+  color: #fff;
+  transition: transform 0.5s ease-in-out;
+}
+.infotext-slide:first-child {
+  transform: translateX(0); /* Make the first slide visible */
+}
+
+.infotext-slide.active {
+  transform: translateX(0);
+}
+
+.infotext-slide.inactive {
+  transform: translateX(60vw);
+}
+#data{
+    margin-left: 5%;
+    margin-top: 30%;
+    height: fit-content;
+    width: 75%;
+    text-align: left ;
+    color: beige
+}
+#data span{
+    font-size: medium;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+#number{
+    width: 10vw;
+    height: 10vh;
+    background-color: rgb(44, 44, 44);
+    color: beige;
+    position: absolute;
+    left:90.5vw;
+    top:11vh;
+    z-index: 200;
+    font-size: 20px;
+    text-align: center;
+   
+}
+    </style>
+</head>
+<body>
+    <div id="main">
+        <div class="tags">
+            <h3>Incredible India</h3>
+        </div>
+        <div class="tags" onmouseover="display(this)" onmouseout="none(this)" style="margin-left: 38%;">
+            <a href="paintings.html" ><h3>Paintings</h3></a>
+            <hr class="hra">
+        </div>
+        <div class="tags" onmouseover="display(this)" onmouseout="none(this)">
+            <a href="embroidery.html"><h3>Embroidery</h3></a>
+            <hr class="hra">
+        </div>
+        <div class="tags" onmouseover="display(this)" onmouseout="none(this)">
+            <a href="tp3.html"><h3>Homes</h3></a>
+            <hr class="hra">
+        </div>
+    </div>
+    <script>
+        function display(element){
+            let hr = element.querySelector('hr');
+            hr.style.display = "block";
+        }
+        function none(element){
+            let hr = element.querySelector('hr');
+            hr.style.display = "none";
+
+        }
+    </script>
+    <div id="box">
+        <div id="number"><br><div id="num">01/10</div></div>
+        <div id="images">
+          <div id="slider"> 
+            <img src="images/chikankari.jpeg" alt="chikankari" style="width: 45vw; height:90vh; float: left;">
+            <img src="images/Phulkari.jpeg" alt="Phulkari" style="width: 45vw; height:90vh; float: left;">
+            <img src="images/Shisha.jpeg" alt="Shisha" style="width: 45vw; height:90vh; float: left;">
+            <img src="images/aari.jpeg" alt="aari" style="width: 45vw; height:90vh; float: left;">
+            <img src="images/zardori.jpeg" alt="zardoshi" style="width: 45vw; height:90vh; float: left;">
+            <img src="images/kashida.jpeg" alt="KASHIDA" style="width: 45vw; height:90vh; float: left;">
+            <img src="images/gota.jpeg" alt="kalighat" style="width: 45vw; height:90vh; float: left;">
+            <img src="images/kantha.jpeg" alt="phad" style="width: 45vw; height:90vh; float: left;">
+            <img src="images/kasuti.jpeg" alt="gond" style="width: 45vw; height:90vh; float: left;">
+            <img src="images/banajaara.jpeg" alt="kerela mural" style="width: 45vw; height:90vh; float: left;">
+        </div></div>
+            
+              <div id="infocard">
+                <div class="controls">
+                    <button class="prev-arrow">&lt;</button>
+                    <button class="next-arrow">&gt;</button>
+                  </div>
+                  <div id="infotext" style="position: relative; left: 0;">
+                    <div class="infotext-slide">
+                        <div id="data">
+                    
+                            <span style="color: rgb(140,73,56);">incredible</span><span style="color: rgb(102,38,41);">india</span>
+                            <h1 style="font-family: 'Times New Roman', Times, serif; color: beige;">CHIKANKARI</h1>
+                            <span>where delicate threads weave stories of timeless elegance.</span>
+                            <p style="margin-left: 10%; font-size: medium;">When it is Chikankari, a white kurta has to be obvious. It is rumoured to have been introduced by Jahangir’s wife, Noor Jahan. But little evidence supports this. The birthplace of this amazing art of embroidery is Lucknow in Uttar Pradesh. Chikankari originally began with white thread on white fabric, but guess what? Over time, you can find it in every colour! This revived work is done by the most patient pair of hands and skilled fingers working magic on traced patterns on fabric such as silk, cotton and more. Not to forget, pure cotton is the first choice when we search for a Chikankari Kurta online. This embroidery work can be used for mostly ethnic collections for both men and women.</p>
+                        </div>
+                    </div>
+                    <div class="infotext-slide">
+                        <div id="data">
+                    
+                            <span style="color: rgb(140,73,56);">incredible</span><span style="color: rgb(102,38,41);">india</span>
+                            <h1 style="font-family: 'Times New Roman', Times, serif; color: beige;">PHULKARI</h1>
+                            <span>vibrant threads of folklore woven into intricate, colorful tapestries.</span>
+                            <p style="margin-left: 10%; font-size: medium;">Originating in Punjab, this form of embroidery is as vibrant as the Punjabis themselves! Phulkari uses multi-coloured threads, which make the appearance unignorable. The base of the fabric used for this embroidery usually needs improvement. The stitches are made mostly on the back of the fabric, while the finished design appears on the front without gaps. The community of women usually performs the Phulkari embroidery art. Khaddar is the traditional fabric used for this type of embroidery, but today, it is seen in many types of fabric, including cotton, chiffon, etc.
+
+
+
+                            </p>
+                        </div>
+                    </div>
+                    <div class="infotext-slide">
+                    <div id="data">
+
+                    <span style="color: rgb(140,73,56);">incredible</span><span style="color: rgb(102,38,41);">india</span>
+                   <h1 style="font-family: 'Times New Roman', Times, serif; color: beige;">SHISHA WORK</h1>
+                        <span>exquisite, detailed worlds captured in breathtakingly tiny strok</span>
+                        <p style="margin-left: 10%; font-size: medium;">Originally done using mica, mirror work was introduced by Iranian travellers sometime around the 17th century. This form of embroidery is now done using various shapes of small mirrors. These mirrors are placed on the cloth and then fixed using special cross-stitch techniques to keep them firm. Mirror work has several variations due to the fact that it is a celebrated form of embroidery work performed in the states of Gujarat, Rajasthan and Haryana. Moreover, this embroidery work is not limited to clothing; it is also used on various accessories such as bags, earrings, bands, shoes and so on!</p>
+                        </div>
+                    </div>
+                    <div class="infotext-slide">
+                    <div id="data">
+
+                    <span style="color: rgb(140,73,56);">incredible</span><span style="color: rgb(102,38,41);">india</span>
+                   <h1 style="font-family: 'Times New Roman', Times, serif; color: beige;">AARI WORK</h1>
+                        <span> divine narratives brought to life with intricate devotion and vibrant elegance.</span>
+                        <p style="margin-left: 10%; font-size: medium;">Aari embroidery gets its name from the special needle it uses for the same aari, meaning it is sharp and hooked! This craft started with the Mughal Empire and became popular in places like Rajasthan, Lucknow and Kashmir. What's really cool about Aari is how it is done: artisans use this hooked needle to make loops of chain stitches. Sometimes, they even add extra sparkle with beads and sequins to create an astounding piece of attire. This form of embroidery is widely used in the fashion industry, especially for the creation of bridal gowns and lehengas. The details of this embroidery form are its true essence, while the blend of moti, beads, kundans and seeps add another layer of beauty to the finished garments.
+
+                        </p>
+                        </div>
+                    </div>
+
+                    <div class="infotext-slide">
+                    <div id="data">
+        
+                            <span style="color: rgb(140,73,56);">incredible</span><span style="color: rgb(102,38,41);">india</span>
+                           <h1 style="font-family: 'Times New Roman', Times, serif; color: beige;">ZARDOSHI</h1>
+                                <span> vibrant, expressive depictions of folklore and nature captured in bold, lively patterns.</span>
+                                <p style="margin-left: 10%; font-size: medium;"> Zardosi work is among the category of royal or most luxurious embroidery forms that started a long time ago with the Mughal kings in the 16th century. The name comes from combining Persian words - 'zari' meaning gold, and 'dosi' meaning embroidery. So, you can guess that it's all about using shiny golden and silvery threads to make things look really fancy! But that’s not all! This embroidery was mostly done on the richest fabric types, including pure velvet and silk, to make it a perfect fit for the royals of that time. Sometimes, they even add real precious stones and pearls to make it even more beautiful and luxurious. So, when you see Zardosi, you are looking at a piece of art that is fit for a king or the queen of mahal!.</p>
+                                </div>
+                            </div>
+                            <div class="infotext-slide">
+                                <div id="data">
+
+                    <span style="color: rgb(140,73,56);">incredible</span><span style="color: rgb(102,38,41);">india</span>
+                   <h1 style="font-family: 'Times New Roman', Times, serif; color: beige;">KASHIDA </h1>
+                        <span>simple, rhythmic patterns that capture the essence of rural life with striking simplicity.</span>
+                        <p style="margin-left: 10%; font-size: medium;">As beautiful as Kashmir itself, Kashida is a traditional work of the artisans in the place that gained huge popularity all over India. It uses beautiful thread colours, mostly bright and lively, to create a perfect piece of cloth that can complement your entire look. This type of embroidery work is mostly done on shawls, bedsheets, odhani, saree pallu, borders, scarves, and even home furnishing items. They choose floral motifs to create patterns and are definitely used for women's wear, especially during winter.</p>
+                        </div>
+                    </div>
+                    <div class="infotext-slide">
+                    <div id="data">
+
+                    <span style="color: rgb(140,73,56);">incredible</span><span style="color: rgb(102,38,41);">india</span>
+                   <h1 style="font-family: 'Times New Roman', Times, serif; color: beige;">GOTA WORK</h1>
+                        <span>dynamic, folk art that blends vibrant color with expressive, rhythmic storytelling.</span>
+                        <p style="margin-left: 10%; font-size: medium;">Gota embroidery comes from Rajasthan and uses special threads from Lucknow to make beautiful patterns on fabric. For this embroidery, they first used gold and silver wires of different lengths, which are specially woven into the fabric. Georgette or bandhani is the most common fabric used for this. The ready gota is added to the cloth by sewing it on. Even though they look fancy, they are actually quite light. Brides love them because they are special and light and come in lots of colours and fabrics. You can find Gota embroidery on outfits like suits, sarees, blouses and lehengas.</p>
+                        </div>
+                    </div>
+                    <div class="infotext-slide">
+                    <div id="data">
+
+                    <span style="color: rgb(140,73,56);">incredible</span><span style="color: rgb(102,38,41);">india</span>
+                   <h1 style="font-family: 'Times New Roman', Times, serif; color: beige;">KANTHA</h1>
+                        <span>dynamic, folk art that blends vibrant color with expressive, rhythmic storytelling.</span>
+                        <p style="margin-left: 10%; font-size: medium;">The simplicity is the main characteristic of Kantha stitch, which hails from West Bengal, extends in the state of Odisha Tripura and crosses the border with Bangladesh. The traditional women of these regions mostly do this embroidery. They are also known as dorukha since the design looks the same from both front and back. The neatness of this embroidery is another feature to love. Not to mention, it is one of the lightest forms of embroidery, which almost feels like nothing since it adds no weight to the garment. Kantha stitches are done on sarees, blankets, bedsheets, pillow covers, dupattas, shirts and a variety of garments and home accessories</p>
+                        </div>
+                    </div>
+                    <div class="infotext-slide">
+                    <div id="data">
+
+                    <span style="color: rgb(140,73,56);">incredible</span><span style="color: rgb(102,38,41);">india</span>
+                   <h1 style="font-family: 'Times New Roman', Times, serif; color: beige;">KASUTI</h1>
+                        <span>enchanting, dot-rich landscapes that vividly bring folklore and nature to life.</span>
+                        <p style="margin-left: 10%; font-size: medium;">If there is anything in embroidery work that feels unrealistic, it has to be Kasuti of Karnataka. Truly inspired by the geometric pattern, this form of embroidery seems both dramatic and interesting at the same time. There is no certain pattern you can use to do this stitch work. However, it is mostly inspired by fauna motifs. The stitching is done by counting each thread, which is, at times, extremely tedious work. Also, these embroideries are done without knots, making them extremely difficult to perform. But despite all the drawbacks, these embroidery works can create extremely beautiful pieces of attire such as kurtas, dupatta borders, jackets, and so on!</p>
+                        </div>
+                    </div>
+                    <div class="infotext-slide">
+                    <div id="data">
+
+                    <span style="color: rgb(140,73,56);">incredible</span><span style="color: rgb(102,38,41);">india</span>
+                   <h1 style="font-family: 'Times New Roman', Times, serif; color: beige;">BANJAARA</h1>
+                        <span>ancient, mesmerizing art that transforms mythic stories into vibrant, detailed wall masterpieces.</span>
+                        <p style="margin-left: 10%; font-size: medium;">The Banjara nomadic tribes, known for their versatile travels, spread this embroidery style across different places. This led to different regions developing their unique techniques and designs. This embroidery starts with a coloured fabric. They make patterns using cross-stitches in shapes like squares and triangles. They also use chain stitches and a special quilting stitch to make special designs. Sometimes, they add mirrors and beads to make it even more special.</p>
+                        </div>
+                    </div>
+
+              </div>
+
+
+    </div>
+    <script>
+const gallery = document.querySelector('.images');
+const images = document.querySelector('#slider');
+const prevArrow = document.querySelector('.prev-arrow');
+const nextArrow = document.querySelector('.next-arrow');
+
+function updateInfotext() {
+  infotextSlides.forEach((slide, index) => {
+    if (index === currentImageIndex) {
+      slide.classList.add('active');
+      slide.classList.remove('inactive');
+    } else {
+      slide.classList.add('inactive');
+      slide.classList.remove('active');
+    }
+  });
+
+  // Adjust the currentImageIndex for the previous arrow
+  if (currentImageIndex === 0) {
+    currentImageIndex = infotextSlides.length - 1;
+  } else {
+    currentImageIndex--;
+  }
+}
+
+let currentImageIndex = 0;
+let infotextSlides = document.querySelectorAll('.infotext-slide');
+
+
+// Add event listeners to the arrow buttons
+prevArrow.addEventListener('click', () => {
+  currentImageIndex--;
+  if (currentImageIndex < 0) {
+    currentImageIndex = images.children.length - 1;
+  }
+  images.style.transition = 'transform 0.5s ease-in-out';
+  images.style.transform = `translateX(-${currentImageIndex * 45}vw)`; // Assuming 45vw is the width of each image
+  updateInfotext();
+  updateNumber(currentImageIndex +1, images.children.length);
+});
+
+nextArrow.addEventListener('click', () => {
+  currentImageIndex++;
+  if (currentImageIndex >= images.children.length) {
+    currentImageIndex = 0;
+  }
+  images.style.transition = 'transform 0.5s ease-in-out';
+  images.style.transform = `translateX(-${currentImageIndex * 45}vw)`;
+  updateInfotext();
+  updateNumber(currentImageIndex + 1, images.children.length);
+  
+});
+
+
+
+function updateInfotext() {
+  infotextSlides.forEach((slide, index) => {
+    if (index === currentImageIndex) {
+      slide.classList.add('active');
+      slide.classList.remove('inactive');
+    } else {
+      slide.classList.add('inactive');
+      slide.classList.remove('active');
+    }
+  });
+}
+
+  function updateNumber(current, total) {
+        const numberElement = document.getElementById('num');
+        numberElement.innerHTML = `0${current}/0${total}`;
+        if (current >= 10) {
+            numberElement.innerHTML = `${current}/0${total}`;
+        }
+        if (total >= 10) {
+            numberElement.innerHTML = `0${current}/${total}`;
+        }
+        if (current >= 10 && total >= 10) {
+            numberElement.innerHTML = `${current}/${total}`;
+        }
+}
+    </script>
+    
+</body>
+</html>
