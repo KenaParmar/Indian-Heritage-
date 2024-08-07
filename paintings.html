@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>paintings</title>
+    <style>
+        body{
+            height: 100vh;
+            background-color: rgb(192, 200, 179);
+            width: 100vw;
+            overflow-x: hidden;
+        }
+        #main{
+            width: 100vw;
+            height: 10vh;
+            background-color: rgb(192, 200, 179);
+            font-family: "Lucida Sans Typewriter", 
+            "Lucida Console", monaco, "Bitstream Vera Sans Mono",monospace;
+            font-size: 14px;
+            font-style: normal;
+            font-variant: normal;
+            font-weight: 400;
+            line-height: 20px; 
+            text-align: center;
+            font-size: 15px;
+
+        }
+
+        .tags{
+            float: left;
+            height: 100%;
+            width: 15%;
+            background-color: rgb(192, 200, 179);
+        }
+
+        .hra{
+            display: none;
+            width: 90px;
+            height:3px;
+            background-color: crimson;
+        }
+        a{
+            text-decoration: none;
+            color: black;
+        }
+        #box{
+            height:90vh;
+            width: 100vw;
+            overflow: hidden;
+        }
+        #images{
+            height:90vh;
+            width:495vw;
+            z-index: 100;
+            float:left;
+        }
+
+         #infocard{
+            height:90vh;
+            width: 45vw;
+            position: absolute;
+            top: 11vh;
+            left: 45.5vw;
+            z-index: 200;
+            background-color: rgb(79,20,23);
+         }
+            /*
+        #arrow{
+            color: antiquewhite;
+            font-size: 60px;
+            cursor: pointer; /* Add this to change the cursor to a pointer on hover */
+        .controls {
+        position: absolute;
+        top:95%;
+        transform: translateY(-50%);
+        width: 45vw;
+        height: fit-content;
+        justify-content: space-between;
+        background-color: rgb(97,22,27);
+        }
+
+.prev-arrow {
+  background-color: transparent;
+  border: none;
+  padding: 10px;
+  font-size: 40px;
+  cursor: pointer;
+  float: left;
+  background-color: rgb(225,126,46);
+
+}
+.next-arrow {
+  background-color: transparent;
+  border: none;
+  padding: 10px;
+  font-size: 40px;
+  cursor: pointer;
+  float: left;
+  background-color: rgb(225,126,46);
+}
+
+        .prev-arrow:hover,.next-arrow:hover{
+            color: rgb(246, 184, 107);
+            text-shadow: 5px rgb(246, 184, 107);
+        }
+
+        #slider{
+            height:90vh;
+            width:495vw;
+        }
+        #slider.animate{
+            animation: my_animeright 1s;
+            animation-fill-mode: forwards;
+        }
+       
+
+        @keyframes my_animeright{
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-45vw);
+            }
+        }
+
+     .infotext-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  transform: translateX(60vw); 
+  color: #fff;
+  transition: transform 0.5s ease-in-out;
+}
+.infotext-slide:first-child {
+  transform: translateX(0); /* Make the first slide visible */
+}
+
+.infotext-slide.active {
+  transform: translateX(0);
+}
+
+.infotext-slide.inactive {
+  transform: translateX(60vw);
+}
+#data{
+    margin-left: 5%;
+    margin-top: 30%;
+    height: fit-content;
+    width: 75%;
+    text-align: left ;
+    color: beige
+}
+#data span{
+    font-size: medium;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+#number{
+    width: 10vw;
+    height: 10vh;
+    background-color: rgb(44, 44, 44);
+    color: beige;
+    position: absolute;
+    left:90.5vw;
+    top:11vh;
+    z-index: 200;
+    font-size: 20px;
+    text-align: center;
+   
+}
+    </style>
+</head>
+<body>
+    <div id="main">
+        <div class="tags">
+            <h3>Incredible India</h3>
+        </div>
+        <div class="tags" onmouseover="display(this)" onmouseout="none(this)" style="margin-left: 38%;">
+            <a href="paintings.html" ><h3>Paintings</h3></a>
+            <hr class="hra">
+        </div>
+        <div class="tags" onmouseover="display(this)" onmouseout="none(this)">
+            <a href="embroidery.html"><h3>Embroidery</h3></a>
+            <hr class="hra">
+        </div>
+        <div class="tags" onmouseover="display(this)" onmouseout="none(this)">
+            <a href="tp3.html"><h3>Homes</h3></a>
+            <hr class="hra">
+        </div>
+    </div>
+    <script>
+        function display(element){
+            let hr = element.querySelector('hr');
+            hr.style.display = "block";
+        }
+        function none(element){
+            let hr = element.querySelector('hr');
+            hr.style.display = "none";
+
+        }
+    </script>
+    <div id="box">
+        <div id="number"><br><div id="num">01/11</div></div>
+        <div id="images">
+          <div id="slider"> 
+            <img src="images/kalamkari.jpeg" alt="kalamkari" style="width: 45vw; height:90vh; float: left;">
+            <img src="images/madhubani.jpeg" alt="madhubani" style="width: 45vw; height:90vh; float: left;">
+            <img src="images/miniature.jpeg" alt="miniature" style="width: 45vw; height:90vh; float: left;">
+            <img src="images/pichwai.jpeg" alt="pichwai" style="width: 45vw; height:90vh; float: left;">
+            <img src="images/bhil.png" alt="bhil" style="width: 45vw; height:90vh; float: left;">
+            <img src="images/warli.jpeg" alt="warli" style="width: 45vw; height:90vh; float: left;">
+            <img src="images/kalighat.jpeg" alt="kalighat" style="width: 45vw; height:90vh; float: left;">
+            <img src="images/phad.jpeg" alt="phad" style="width: 45vw; height:90vh; float: left;">
+            <img src="images/gond.jpeg" alt="gond" style="width: 45vw; height:90vh; float: left;">
+            <img src="images/kerelamural.jpeg" alt="kerela mural" style="width: 45vw; height:90vh; float: left;">
+            <img src="images/patachitra.jpeg" alt="patachitra" style="width: 45vw; height:90vh; float: left;">
+        </div></div>
+            
+              <div id="infocard">
+                <div class="controls">
+                    <button class="prev-arrow">&lt;</button>
+                    <button class="next-arrow">&gt;</button>
+                  </div>
+                  <div id="infotext" style="position: relative; left: 0;">
+                    <div class="infotext-slide">
+                        <div id="data">
+                    
+                            <span style="color: rgb(140,73,56);">incredible</span><span style="color: rgb(102,38,41);">india</span>
+                            <h1 style="font-family: 'Times New Roman', Times, serif; color: beige;">KALAMKARI</h1>
+                            <span>where every stroke tells a timeless tale of tradition and artistry.</span>
+                            <p style="margin-left: 10%; font-size: medium;">This 3000-year-old organic art of hand and block printing was traditionally used for making narrative scrolls and panels. This exquisite folk art has a strong connect with Persian motifs. Kalamkari derives its name from kalam or pen and is a legacy that has been handed down from generation to generation in Andhra Pradesh. The stylised animal forms, floral motifs and mehrab designs predominant in Kalamkari paintings have also found a place in Kalamkari textiles. Kalamkari art primarily involves earthy colours like indigo, green, rust, black and mustard.</p>
+                        </div>
+                    </div>
+                    <div class="infotext-slide">
+                        <div id="data">
+                    
+                            <span style="color: rgb(140,73,56);">incredible</span><span style="color: rgb(102,38,41);">india</span>
+                            <h1 style="font-family: 'Times New Roman', Times, serif; color: beige;">MADHUBANI</h1>
+                            <span>vibrant threads of folklore woven into intricate, colorful tapestries.</span>
+                            <p style="margin-left: 10%; font-size: medium;">One of the most celebrate styles of Indian art is, Madhubani
+                                 which originated in the Mithila region of Bihar as a form of wall art.
+                                 This spectacular folk art style was unknown to the outside world until
+                                  discovered by the British colonial William G. Archer in 1934 while inspecting
+                                   the damage after the massive Bihar earthquake. Archer was amazed by the
+                                    beautiful illustrations on the exposed interior walls of the houses…The
+                                     beauty of Madhubani lies in its simple and evocative portrayal of culture
+                                      and traditions.
+
+                            </p>
+                        </div>
+                    </div>
+                    <div class="infotext-slide">
+                    <div id="data">
+
+                    <span style="color: rgb(140,73,56);">incredible</span><span style="color: rgb(102,38,41);">india</span>
+                   <h1 style="font-family: 'Times New Roman', Times, serif; color: beige;">MINIATURE ART</h1>
+                        <span>exquisite, detailed worlds captured in breathtakingly tiny strok</span>
+                        <p style="margin-left: 10%; font-size: medium;">The Miniature painting style came to India with the Mughals in the 16th century and is identified as an important milestone in the history of Indian art. It developed into a distinct style with a combination of Islamic, Persian and Indian elements. The painting is done using natural stone colors on a paper-based “wasli”. Mineral colors, precious stones, conch shells, gold and silver are used in the miniatures. Fine brushwork, intricacy, detailing and stylization are the unique attributes of miniature painting. Across India, the miniature painting style has developed into distinct schools of miniature paintings like Kangra, Rajasthan, Malwa, Pahadi, Mughal, Deccan etc. to name a few. </p>
+                        </div>
+                    </div>
+                    <div class="infotext-slide">
+                    <div id="data">
+
+                    <span style="color: rgb(140,73,56);">incredible</span><span style="color: rgb(102,38,41);">india</span>
+                   <h1 style="font-family: 'Times New Roman', Times, serif; color: beige;">PICHWAI PAINTING</h1>
+                        <span> divine narratives brought to life with intricate devotion and vibrant elegance.</span>
+                        <p style="margin-left: 10%; font-size: medium;">The Indian art of Pichwai originated as wall hangings behind the main deity in Krishna temples in Nathdwara. They narrate stories related to Lord Krishna. Gradually with commercialisation secular themes are also incorporated in the Picchwai style of painting. Picchwais are colourful and intricate works of art with concealed symbolism in the artistic motifs. This distinct devotional art practice has passed from one generation to another and a fine example of spirituality in art.</p>
+                        </div>
+                    </div>
+
+                    <div class="infotext-slide">
+                    <div id="data">
+        
+                            <span style="color: rgb(140,73,56);">incredible</span><span style="color: rgb(102,38,41);">india</span>
+                           <h1 style="font-family: 'Times New Roman', Times, serif; color: beige;">BHIL PAINTING</h1>
+                                <span> vibrant, expressive depictions of folklore and nature captured in bold, lively patterns.</span>
+                                <p style="margin-left: 10%; font-size: medium;"> The Bhils reside in Madhya Pradesh, Gujarat, Rajasthan, and Maharashtra and are highly superstitious people. Art is very important to them and the rich textures of their paintings connect their life to nature. The Bhil paintings are traditionally done on the clay walls of their village homes and neem sticks, twigs, and natural colors are used to do so. The bright and vibrant colors are extracted from turmeric, flour, vegetables, oil, and leaves. These Bhil paintings depict the everyday life of this tribe and they usually contain large shapes covered with uniform dots. Some common depictions include nature, flora and fauna, Bhil deities, births and deaths, rituals, and festivals. Nowadays, this art form is practiced on a canvas
+                                    and acrylic paints are used instead of natural dyes.</p>
+                                </div>
+                            </div>
+                            <div class="infotext-slide">
+                                <div id="data">
+
+                    <span style="color: rgb(140,73,56);">incredible</span><span style="color: rgb(102,38,41);">india</span>
+                   <h1 style="font-family: 'Times New Roman', Times, serif; color: beige;">WARLI PAINTING</h1>
+                        <span>simple, rhythmic patterns that capture the essence of rural life with striking simplicity.</span>
+                        <p style="margin-left: 10%; font-size: medium;">This ancient Indian art is 2500-year-old tradition. Warli paintings of the Thane and Nasik areas of Maharashtra are closely linked with nature and social rituals of the tribe. Warli paintings showcase daily activities of the local people of that community like farming, dancing, hunting, praying etc. Traditionally, women used twigs to draw lively designs with rice paste on mud walls of tribal houses to mark celebrations of harvests or weddings. Simple geometrical patterns in white against a red or yellow surface are used to depict everyday life scenes. Warli art with its linear and monochromatic hues resembles the execution of pre-historic cave paintings.</p>
+                        </div>
+                    </div>
+                    <div class="infotext-slide">
+                    <div id="data">
+
+                    <span style="color: rgb(140,73,56);">incredible</span><span style="color: rgb(102,38,41);">india</span>
+                   <h1 style="font-family: 'Times New Roman', Times, serif; color: beige;">KALIGHAT ART</h1>
+                        <span>dynamic, folk art that blends vibrant color with expressive, rhythmic storytelling.</span>
+                        <p style="margin-left: 10%; font-size: medium;">The Kalighat painting style was developed around Mid-19th century in the neighbourhood of Kali Temple in Calcutta. These drawings on paper were done by a group known as “patuas” hence the name Kalighata Pata. They depicted scenes of everyday life and mythological deities in a simple yet captivating manner and developed into the popular kalighat style of painting. Kalighat painters predominantly use earthy Indian colours like indigo, ochre, Indian red, grey, blue and white. The swift, seamless, free-flowing outline is a distinguished characteristic of Kalighat style of paintings. This painting style has inspired many artists, the most famous being Jamini Roy, one of the celebrated artist in Indian art.</p>
+                        </div>
+                    </div>
+                    <div class="infotext-slide">
+                    <div id="data">
+
+                    <span style="color: rgb(140,73,56);">incredible</span><span style="color: rgb(102,38,41);">india</span>
+                   <h1 style="font-family: 'Times New Roman', Times, serif; color: beige;">PHAD</h1>
+                        <span>dynamic, folk art that blends vibrant color with expressive, rhythmic storytelling.</span>
+                        <p style="margin-left: 10%; font-size: medium;">Phad is the narrative scroll painting tradition from Rajasthan, dating back to a thousand years. Stories of local deities and heroes are painted on horizontal cloth scrolls in hues of red, yellow and orange The Phad scrolls show depictions of battlefields, adventure stories, legendary romances and the richness of the Indian princely states. The Phad painting style leaves one spellbound at how the folk artists accommodate multiple stories in a single composition, yet maintain the aesthetics of artistic expression.</p>
+                        </div>
+                    </div>
+                    <div class="infotext-slide">
+                    <div id="data">
+
+                    <span style="color: rgb(140,73,56);">incredible</span><span style="color: rgb(102,38,41);">india</span>
+                   <h1 style="font-family: 'Times New Roman', Times, serif; color: beige;">GOND PAINTING</h1>
+                        <span>enchanting, dot-rich landscapes that vividly bring folklore and nature to life.</span>
+                        <p style="margin-left: 10%; font-size: medium;">These vibrant paintings created with a series of intricately arranged dots and dashes were developed by the Gondi tribe of central India. The tribals recreate mythological tales and oral histories to traditional songs, natural surroundings, important events and rituals in with great intricacy, rich detailing, and bright colors. Traditionally, colors were derived from natural resources like cow dung, plant sap, charcoal, coloured soil, mud, flowers, leaves etc. Gond artists now use commercial water-based colors to paint on paper and canvas. In today’s times, Gond art has moved beyond being a tribal art style with nameless artists to having internationally acclaimed artists like Jangarh Singh Shyam, Venkat Shyam, Bhajju Shyam, Durga Bai Vyam to name a few</p>
+                        </div>
+                    </div>
+                    <div class="infotext-slide">
+                    <div id="data">
+
+                    <span style="color: rgb(140,73,56);">incredible</span><span style="color: rgb(102,38,41);">india</span>
+                   <h1 style="font-family: 'Times New Roman', Times, serif; color: beige;">KERALA MURAL PAINTING</h1>
+                        <span>ancient, mesmerizing art that transforms mythic stories into vibrant, detailed wall masterpieces.</span>
+                        <p style="margin-left: 10%; font-size: medium;">The vibrant Kerala mural paintings are one of the world’s most famous frescos and have deep spiritual roots depicting themes of Hindu mythology, epics, the classic frolics of Krishna as well as the mystic forms of Siva and Shakti. They also recount some legendary heroes of the bygone era. This traditional art style dates to the seventh and eighth century AD and is characterised by vivacious imagery, bold strokes, and vivid colours. Ochre-red, yellow- ochre, bluish- green, white and pure colors are predominantly used in Kerala mural painting.</p>
+                        </div>
+                    </div>
+                    <div class="infotext-slide">
+                    <div id="data">
+                    
+                        <span style="color: rgb(140,73,56);">incredible</span><span style="color: rgb(102,38,41);">india</span>
+                        <h1 style="font-family: 'Times New Roman', Times, serif; color: beige;">PATACHITRA PAINTING</h1>
+                        <span> timeless narratives and intricate patterns brought to life on traditional scrolls with exquisite craftsmanship.</span>
+                        <p style="margin-left: 10%; font-size: medium;">Patachitra is the cloth scroll painting tradition from Odisha, dedicated to mythological and religious themes in Indian art. Bold, strong outlines, vibrant colors like white, red yellow and black with decorative borders are some of the characteristics of patachitra painting style, that is admired by art lovers across the world.</p>
+                    </div>
+                  </div>
+
+              </div>
+
+
+    </div>
+    <script>
+const gallery = document.querySelector('.images');
+const images = document.querySelector('#slider');
+const prevArrow = document.querySelector('.prev-arrow');
+const nextArrow = document.querySelector('.next-arrow');
+
+function updateInfotext() {
+  infotextSlides.forEach((slide, index) => {
+    if (index === currentImageIndex) {
+      slide.classList.add('active');
+      slide.classList.remove('inactive');
+    } else {
+      slide.classList.add('inactive');
+      slide.classList.remove('active');
+    }
+  });
+
+  // Adjust the currentImageIndex for the previous arrow
+  if (currentImageIndex === 0) {
+    currentImageIndex = infotextSlides.length - 1;
+  } else {
+    currentImageIndex--;
+  }
+}
+
+let currentImageIndex = 0;
+let infotextSlides = document.querySelectorAll('.infotext-slide');
+
+
+// Add event listeners to the arrow buttons
+prevArrow.addEventListener('click', () => {
+  currentImageIndex--;
+  if (currentImageIndex < 0) {
+    currentImageIndex = images.children.length - 1;
+  }
+  images.style.transition = 'transform 0.5s ease-in-out';
+  images.style.transform = `translateX(-${currentImageIndex * 45}vw)`; // Assuming 45vw is the width of each image
+  updateInfotext();
+  updateNumber(currentImageIndex +1, images.children.length);
+});
+
+nextArrow.addEventListener('click', () => {
+  currentImageIndex++;
+  if (currentImageIndex >= images.children.length) {
+    currentImageIndex = 0;
+  }
+  images.style.transition = 'transform 0.5s ease-in-out';
+  images.style.transform = `translateX(-${currentImageIndex * 45}vw)`;
+  updateInfotext();
+  updateNumber(currentImageIndex + 1, images.children.length);
+  
+});
+
+
+
+function updateInfotext() {
+  infotextSlides.forEach((slide, index) => {
+    if (index === currentImageIndex) {
+      slide.classList.add('active');
+      slide.classList.remove('inactive');
+    } else {
+      slide.classList.add('inactive');
+      slide.classList.remove('active');
+    }
+  });
+}
+
+  function updateNumber(current, total) {
+        const numberElement = document.getElementById('num');
+        numberElement.innerHTML = `0${current}/0${total}`;
+        if (current >= 10) {
+            numberElement.innerHTML = `${current}/0${total}`;
+        }
+        if (total >= 10) {
+            numberElement.innerHTML = `0${current}/${total}`;
+        }
+        if (current >= 10 && total >= 10) {
+            numberElement.innerHTML = `${current}/${total}`;
+        }
+}
+    </script>
+    
+</body>
+</html>
