@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FOOD</title>
+    <style>
+      *{
+        padding: 0;
+        margin: 0;
+      }
+        body{
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden;
+        }
+        #main{
+            width: 100vw;
+            height: 10vh;
+            background-color: rgb(192, 200, 179);
+            font-family: "Lucida Sans Typewriter", 
+            "Lucida Console", monaco, "Bitstream Vera Sans Mono",monospace;
+            font-size: 14px;
+            font-style: normal;
+            font-variant: normal;
+            font-weight: 400;
+            line-height: 20px; 
+            text-align: center;
+            font-size: 15px;
+
+        }
+
+        .tags{
+            float: left;
+            height: 100%;
+            width: 15%;
+            background-color: rgb(192, 200, 179);
+        }
+
+        .hra{
+            display: none;
+            width: 90px;
+            height:3px;
+            background-color: crimson;
+        }
+        a{
+            text-decoration: none;
+            color: black;
+        }
+        #box{
+            height:90vh;
+            width: 100vw;
+            overflow: hidden;
+        }
+        #images{
+            height:90vh;
+            width:405vw;
+            z-index: 100;
+            float:left;
+        }
+
+         #infocard{
+            height:90vh;
+            width: 45vw;
+            position: absolute;
+            top: 10vh;
+            left: 45vw;
+            z-index: 200;
+            background-color: rgb(79,20,23);
+         }
+            /*
+        #arrow{
+            color: antiquewhite;
+            font-size: 60px;
+            cursor: pointer; /* Add this to change the cursor to a pointer on hover */
+        .controls {
+        position: absolute;
+        top:95%;
+        transform: translateY(-50%);
+        width: 45vw;
+        height: fit-content;
+        justify-content: space-between;
+        background-color: rgb(97,22,27);
+        }
+
+.prev-arrow {
+  background-color: transparent;
+  border: none;
+  padding: 10px;
+  font-size: 40px;
+  cursor: pointer;
+  float: left;
+  background-color: rgb(225,126,46);
+
+}
+.next-arrow {
+  background-color: transparent;
+  border: none;
+  padding: 10px;
+  font-size: 40px;
+  cursor: pointer;
+  float: left;
+  background-color: rgb(225,126,46);
+}
+
+        .prev-arrow:hover,.next-arrow:hover{
+            color: rgb(246, 184, 107);
+            text-shadow: 5px rgb(246, 184, 107);
+        }
+
+        #slider{
+            height:90vh;
+            width:405vw;
+        }
+        #slider.animate{
+            animation: my_animeright 1s;
+            animation-fill-mode: forwards;
+        }
+       
+
+        @keyframes my_animeright{
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-45vw);
+            }
+        }
+
+     .infotext-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  transform: translateX(60vw); 
+  color: #fff;
+  transition: transform 0.5s ease-in-out;
+}
+.infotext-slide:first-child {
+  transform: translateX(0); /* Make the first slide visible */
+}
+
+.infotext-slide.active {
+  transform: translateX(0);
+}
+
+.infotext-slide.inactive {
+  transform: translateX(60vw);
+}
+#data{
+    margin-left: 5%;
+    margin-top: 30%;
+    height: fit-content;
+    width: 75%;
+    text-align: left ;
+    color: beige
+}
+#data span{
+    font-size: medium;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+#number{
+    width: 10vw;
+    height: 10vh;
+    background-color: rgb(44, 44, 44);
+    color: beige;
+    position: absolute;
+    left:90vw;
+    top:10vh;
+    z-index: 200;
+    font-size: 20px;
+    text-align: center;
+   
+}
+@media screen and (max-width: 800px) {
+  
+
+
+  
+}
+    </style>
+</head>
+<body>
+    <div id="main">
+        <div class="tags">
+            <h3>Incredible India</h3>
+        </div>
+        <div class="tags" onmouseover="display(this)" onmouseout="none(this)" style="margin-left: 55%;">
+            <a href="#" ><h3>Foods</h3></a>
+            <hr class="hra">
+        </div>
+        <div class="tags" onmouseover="display(this)" onmouseout="none(this)">
+            <a href="#"><h3>Homes</h3></a>
+            <hr class="hra">
+        </div>
+    </div>
+    <script>
+        function display(element){
+            let hr = element.querySelector('hr');
+            hr.style.display = "block";
+        }
+        function none(element){
+            let hr = element.querySelector('hr');
+            hr.style.display = "none";
+
+        }
+    </script>
+    <div id="box">
+        <div id="number"><br><div id="num">01/09</div></div>
+        <div id="images">
+          <div id="slider"> 
+            <img src="images/dhokla.jpeg" alt="dhokla" style="width: 45vw; height:90vh; float: left;">
+            <img src="images/idli.jpeg" alt="idli" style="width: 45vw; height:90vh; float: left;">
+            <img src="images/khandvi.jpeg" alt="khandvi" style="width: 45vw; height:90vh; float: left;">
+            <img src="images/palak paneer.jpg" alt="palak panner" style="width: 45vw; height:90vh; float: left;">
+            <img src="images/dosa.jpeg" alt="dosa" style="width: 45vw; height:90vh; float: left;">
+            <img src="images/biryani.jpeg" alt="biryani" style="width: 45vw; height:90vh; float: left;">
+            <img src="images/panipuri_.jpg" alt="pani puri" style="width: 45vw; height:90vh; float: left;">
+            <img src="images/malaikofta.jpeg" alt="malai kofta" style="width: 45vw; height:90vh; float: left;">
+            <img src="images/dalmakhni.jpeg" alt="dal makhni" style="width: 45vw; height:90vh; float: left;">
+
+        </div></div>
+            
+              <div id="infocard">
+                <div class="controls">
+                    <button class="prev-arrow">&lt;</button>
+                    <button class="next-arrow">&gt;</button>
+                  </div>
+                  <div id="infotext" style="position: relative; left: 0;">
+                    <div class="infotext-slide">
+                        <div id="data">
+                    
+                            <span style="color: rgb(140,73,56);">incredible</span><span style="color: rgb(102,38,41);">india</span>
+                            <h1 style="font-family: 'Times New Roman', Times, serif; color: beige;">KHAMAN-DHOKLA</h1>
+                            <span>a fluffy, savory delight that melts in your mouth with every bite."</span>
+                            <p style="margin-left: 10%; font-size: medium;">Khaman-dhokla is a popular Indian snack hailing from Gujarat,
+                                known for its light, fluffy texture and savory flavor. Made from fermented chickpea
+                                flour (besan) and a blend of spices, it’s steamed to perfection, resulting in a soft,
+                                spongy cake with a slightly tangy taste. Typically garnished with mustard seeds,
+                                curry leaves, and coriander, and often accompanied by a sweet and spicy chutney,
+                                khaman-dhokla offers a delightful contrast of flavors and is enjoyed as a breakfast item,
+                                snack, or appetizer. Its vibrant yellow color and aromatic spices make it not only delicious
+                                but also visually appealing.</p>
+                        </div>
+                    </div>
+                    <div class="infotext-slide">
+                        <div id="data">
+                    
+                            <span style="color: rgb(140,73,56);">incredible</span><span style="color: rgb(102,38,41);">india</span>
+                            <h1 style="font-family: 'Times New Roman', Times, serif; color: beige;">IDLI</h1>
+                            <span>soft, fluffy rice cakes that are a wholesome, savory delight with every bite.</span>
+                            <p style="margin-left: 10%; font-size: medium;">Idli is a beloved South Indian dish consisting
+                                of soft, fluffy rice cakes made from a fermented batter of rice and urad dal (black gram).
+                                These steamed cakes have a delicate, spongy texture and a mild, slightly tangy flavor due
+                                to the fermentation process. Traditionally served with coconut chutney and sambar
+                                (a spicy lentil soup), idlis are enjoyed as a nutritious breakfast or light meal.
+                                Their versatility allows them to be paired with a variety of accompaniments, making
+                                them a staple in Indian cuisine and a favorite for their simplicity and comforting taste.</p>
+                        </div>
+                    </div>
+                    <div class="infotext-slide">
+                    <div id="data">
+
+                    <span style="color: rgb(140,73,56);">incredible</span><span style="color: rgb(102,38,41);">india</span>
+                   <h1 style="font-family: 'Times New Roman', Times, serif; color: beige;">KHANDVI</h1>
+                        <span>soft, fluffy rice cakes that are a wholesome, savory delight with every bite.</span>
+                        <p style="margin-left: 10%; font-size: medium;">Khandvi is a delectable Gujarati snack made from a spiced gram flour (besan) batter that’s steamed into thin layers, then rolled up into delicate, bite-sized rolls. The batter is seasoned with turmeric, ginger, and green chilies, giving it a vibrant yellow color and a balanced, mildly spicy flavor. Once steamed and cooled, the rolls are cut into pieces and garnished with a tempering of mustard seeds, curry leaves, and sesame seeds, adding a crunchy texture and a burst of additional flavor. Khandvi is appreciated for its light, melt-in-the-mouth quality and is often served as a snack or appetizer at parties and gatherings.</p>
+                        </div>
+                    </div>
+                    <div class="infotext-slide">
+                    <div id="data">
+
+                    <span style="color: rgb(140,73,56);">incredible</span><span style="color: rgb(102,38,41);">india</span>
+                   <h1 style="font-family: 'Times New Roman', Times, serif; color: beige;">PALAK PANEER</h1>
+                        <span> creamy, spiced spinach sauce enveloping tender cubes of paneer in a comforting, flavorful dish</span>
+                        <p style="margin-left: 10%; font-size: medium;">Palak paneer is a popular North Indian dish featuring tender cubes of paneer (Indian cottage cheese) simmered in a rich, creamy spinach gravy. The spinach, or palak, is finely pureed and cooked with a blend of aromatic spices like cumin, coriander, and garam masala, creating a lush, vibrant green sauce that coats the paneer. This dish is known for its balanced flavors, combining the earthiness of spinach with the subtle richness of paneer. Often enjoyed with naan, roti, or rice, palak paneer is a nutritious and comforting meal that's both satisfying and delicious.</p>
+                        </div>
+                    </div>
+
+                    <div class="infotext-slide">
+                    <div id="data">
+
+                    <span style="color: rgb(140,73,56);">incredible</span><span style="color: rgb(102,38,41);">india</span>
+                   <h1 style="font-family: 'Times New Roman', Times, serif; color: beige;">DOSA</h1>
+                        <span>crispy, golden crepes with a savory, slightly tangy flavor that pairs perfectly with a variety of chutneys and sambar.</span>
+                        <p style="margin-left: 10%; font-size: medium;">Dosa is a classic South Indian dish known for its crispy, thin crepes made from a fermented batter of rice and urad dal (black gram). The batter is spread thin on a hot griddle, resulting in a golden-brown, lacy texture that’s both crispy and slightly chewy. Traditionally served with an assortment of chutneys and sambar (a spicy lentil soup), dosa can be enjoyed plain or filled with a variety of savory fillings like spiced potatoes, onions, or paneer. Its versatility and satisfying crunch make it a popular choice for breakfast, lunch, or dinner, offering a delightful combination of textures and flavors.</p>
+                        </div>
+                    </div>
+                    <div class="infotext-slide">
+                    <div id="data">
+
+                    <span style="color: rgb(140,73,56);">incredible</span><span style="color: rgb(102,38,41);">india</span>
+                   <h1 style="font-family: 'Times New Roman', Times, serif; color: beige;">BIRYANI</h1>
+                        <span>a fragrant, spiced rice dish layered with tender meat or vegetables and aromatic herbs, offering a feast for both the senses and the palate.</span>
+                        <p style="margin-left: 10%; font-size: medium;">Biryani is a richly flavored, aromatic rice dish that combines layers of long-grain basmati rice with marinated meat (such as chicken, lamb, or beef) or vegetables, and a blend of fragrant spices like saffron, cardamom, and cloves. The dish is traditionally slow-cooked, allowing the spices and flavors to meld beautifully with the rice. Garnished with fried onions, fresh herbs, and sometimes nuts or raisins, biryani offers a complex, satisfying taste experience with each mouthful. Often accompanied by cooling raita (yogurt sauce) or a side salad, biryani is a celebratory dish enjoyed across South Asia and beyond for its rich, sumptuous flavors and captivating aroma.</p>
+                        </div>
+                    </div>
+                    <div class="infotext-slide">
+                    <div id="data">
+
+                    <span style="color: rgb(140,73,56);">incredible</span><span style="color: rgb(102,38,41);">india</span>
+                   <h1 style="font-family: 'Times New Roman', Times, serif; color: beige;">PANI PURI</h1>
+                        <span>crisp, hollow puris filled with spicy tamarind water, tangy chutneys, and a mix of savory fillings, creating a burst of flavor in every bite.</span>
+                        <p style="margin-left: 10%; font-size: medium;">Pani puri, a popular Indian street food, consists of crisp, hollow puris (tiny, round fried dough shells) filled with a tantalizing mix of spicy tamarind water, tangy chutneys, and savory ingredients like potatoes, chickpeas, and onions. The puris are traditionally served as an interactive experience where the diner dips each puri into the chilled, flavored water before popping it into their mouth in one bite. The result is an explosive combination of textures and flavors—crunchy, spicy, tangy, and refreshing—all harmoniously blended in a single, exhilarating bite. Often enjoyed as a snack or appetizer, pani puri is a beloved treat for its vibrant taste and dynamic presentation.</p>
+                        </div>
+                    </div>
+                    <div class="infotext-slide">
+                    <div id="data">
+
+                    <span style="color: rgb(140,73,56);">incredible</span><span style="color: rgb(102,38,41);">india</span>
+                   <h1 style="font-family: 'Times New Roman', Times, serif; color: beige;">MALAI KOFTA</h1>
+                        <span>creamy, rich curry with tender, flavorful dumplings of paneer and vegetables in a luxurious, spiced sauce.</span>
+                        <p style="margin-left: 10%; font-size: medium;">Malai kofta is a sumptuous North Indian dish featuring soft, tender dumplings made from paneer (Indian cottage cheese) and vegetables, simmered in a rich, creamy gravy. The koftas are usually made by combining grated paneer with mashed potatoes and spices, then shaping them into balls and frying until golden. These dumplings are then gently nestled in a velvety sauce made from cream, tomatoes, and a blend of aromatic spices like cardamom, cinnamon, and garam masala. The result is a dish that is both indulgently rich and delicately spiced, often enjoyed with naan, roti, or rice. Malai kofta is celebrated for its luxurious texture and the harmonious balance of its creamy, flavorful sauce and tender dumplings.</p>
+                        </div>
+                    </div>
+                    <div class="infotext-slide">
+                    <div id="data">
+
+                    <span style="color: rgb(140,73,56);">incredible</span><span style="color: rgb(102,38,41);">india</span>
+                   <h1 style="font-family: 'Times New Roman', Times, serif; color: beige;">DAL MAKHNI</h1>
+                        <span>a rich, creamy blend of black lentils and kidney beans simmered to perfection with spices and butter for a comforting, indulgent dish.</span>
+                        <p style="margin-left: 10%; font-size: medium;">Dal makhni is a beloved North Indian dish renowned for its rich, creamy texture and deep, savory flavor. It features a combination of black lentils (urad dal) and kidney beans (rajma) cooked slowly with a generous amount of butter and cream, which gives the dish its signature luxurious consistency. The lentils and beans are simmered with a blend of aromatic spices like cumin, coriander, and garam masala, along with tomatoes and onions, creating a hearty and flavorful curry. Often garnished with fresh cream and cilantro, dal makhni is traditionally enjoyed with naan, roti, or rice, making it a comforting and indulgent addition to any meal.</p>
+                        </div>
+                    </div>
+                  </div>
+
+              </div>
+
+
+    </div>
+    <script>
+const gallery = document.querySelector('.images');
+const images = document.querySelector('#slider');
+const prevArrow = document.querySelector('.prev-arrow');
+const nextArrow = document.querySelector('.next-arrow');
+const mobileMediaQuery = window.matchMedia('(max-width: 800px)');
+
+function updateInfotext() {
+  infotextSlides.forEach((slide, index) => {
+    if (index === currentImageIndex) {
+      slide.classList.add('active');
+      slide.classList.remove('inactive');
+    } else {
+      slide.classList.add('inactive');
+      slide.classList.remove('active');
+    }
+  });
+
+  // Adjust the currentImageIndex for the previous arrow
+  if (currentImageIndex === 0) {
+    currentImageIndex = infotextSlides.length - 1;
+  } else {
+    currentImageIndex--;
+  }
+}
+
+let currentImageIndex = 0;
+let infotextSlides = document.querySelectorAll('.infotext-slide');
+
+
+// Add event listeners to the arrow buttons
+prevArrow.addEventListener('click', () => {
+  currentImageIndex--;
+  if (currentImageIndex < 0) {
+    currentImageIndex = images.children.length - 1;
+  }
+  images.style.transition = 'transform 0.5s ease-in-out';
+  images.style.transform = `translateX(-${currentImageIndex * 45}vw)`;
+  updateInfotext();
+  updateNumber(currentImageIndex +1, images.children.length);
+});
+
+nextArrow.addEventListener('click', () => {
+  currentImageIndex++;
+  if (currentImageIndex >= images.children.length) {
+    currentImageIndex = 0;
+  }
+  images.style.transition = 'transform 0.5s ease-in-out';
+  if (mobileMediaQuery.matches) {
+    images.style.transform = `translateY(-${currentImageIndex * 60}vh)`;
+
+  }
+  else{
+  images.style.transform = `translateX(-${currentImageIndex * 45}vw)`;
+  }
+  updateInfotext();
+  updateNumber(currentImageIndex + 1, images.children.length);
+  
+});
+
+
+
+function updateInfotext() {
+  infotextSlides.forEach((slide, index) => {
+    if (index === currentImageIndex) {
+      slide.classList.add('active');
+      slide.classList.remove('inactive');
+    } else {
+      slide.classList.add('inactive');
+      slide.classList.remove('active');
+    }
+  });
+}
+
+  function updateNumber(current, total) {
+        const numberElement = document.getElementById('num');
+        numberElement.innerHTML = `0${current}/0${total}`;
+        if (current >= 10) {
+            numberElement.innerHTML = `${current}/0${total}`;
+        }
+        if (total >= 10) {
+            numberElement.innerHTML = `0${current}/${total}`;
+        }
+        if (current >= 10 && total >= 10) {
+            numberElement.innerHTML = `${current}/${total}`;
+        }
+}
+    </script>
+    
+</body>
+</html>
