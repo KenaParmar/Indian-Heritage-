@@ -1,0 +1,92 @@
+.content{
+    display: none;
+}
+body {
+    background-color: #1D3E53;
+}
+
+.data {
+    color: black;
+    font-size: 110%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+.text{
+    width: 60%;
+}
+.datacont {
+    width: 58vw;
+    background-color: rgb(222, 208, 182);
+    /* margin-left: 15vw; */
+    margin-top: 10vh;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+h1 {
+    color: rgb(222, 208, 182);
+    text-align: center;
+}
+
+hr {
+    width: 80%;
+    margin-left: 10%;
+    border: 0;
+    height: 2px;
+    background: rgb(222, 208, 182);
+    box-shadow: 0 2px 10px rgba(222, 208, 182, 0.7);
+}
+
+h2 {
+    font-size: 120%;
+}
+
+.images {
+    height: 33%;
+    width: 33%;
+    margin-top: -50px;
+    margin-bottom: -50px; 
+    z-index: 1;
+}
+.rightc{
+    margin-left: 38vw;
+}
+.left{
+    margin-left: 4vw;
+    margin-right: 2vw;
+}
+.right{
+    
+    margin-left: 2vw;
+    margin-right: 4vw;
+}
+.datae{
+    text-align: center;
+    font-size: 120%;
+    color: rgb(222, 208, 182);
+}
+.end{
+    margin-top: 5vh;
+}
+#btn {
+    background-color: rgb(222, 208, 182);
+    color: black;
+    padding: 5px 10px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#btn:hover {
+    background-color: rgb(173, 162, 142);
+}
+@media screen and (max-width:800px){
+    .datacont{
+        width: 90vw;
+    }
+}
