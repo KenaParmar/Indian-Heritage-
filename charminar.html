@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indian Heritage - Charminar</title>
+    <style>
+        :root {
+            --dark-burgundy: #4e1a1a;
+            --medium-burgundy: #6b2626;
+            --light-burgundy: #883232;
+            --dark-beige: #c2b280;
+            --light-beige: #d6cba6;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background-color: var(--light-beige);
+            color: var(--dark-burgundy);
+        }
+        
+        header {
+            background-color: var(--dark-burgundy);
+            color:  #D1C3AA;;
+            padding: 1rem;
+            text-align: center;
+            margin-top: 2%;
+        }
+        
+        .container {
+            display: flex;
+            justify-content: space-between;
+            padding: 2rem;
+        }
+        
+        .video-section{
+            width: 50%;
+            height: 120%;
+            margin-top: 3%;
+            margin-left: -2%;
+        }
+        
+        .info-cont{
+            position: absolute;
+            margin-left: 46%;
+            margin-top:6%;
+            width:50%;
+        }
+        
+        .infotext-slide {
+            position: relative;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            font-size: larger;
+            font-weight: bold;
+            transform: translateX(45vw);
+            transition: transform 0.5s ease-in-out;
+            opacity: 0;
+        }
+        
+        .infotext-slide.active {
+            transform: translateX(0);
+            opacity: 1;
+        }
+        .video-section video {
+  border: 5px solid var(--dark-burgundy);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* adjust the shadow color and size to your liking */
+}
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Charminar</h1>
+    </header>
+    <main>
+        <div class="container">
+            <div class="video-section">
+                <video width="100%" controls autoplay loop playsinline muted>
+                    <source src="images/charminar.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="info-cont">
+                <div class="infotext-slide">The Charminar, located in Hyderabad, India, is an iconic</div> 
+                <div class="infotext-slide">monument and mosque built in 1591 by Muhammad Quli Qutb Shah. </div>
+                <div class="infotext-slide">This stunning structure features four granda rches facing</div>
+                <div class="infotext-slide"> cardinal directions and four minarets, each standing </div>
+                <div class="infotext-slide"> at 56 meters. Constructed in Indo-Islamic architecture</div>
+                <div class="infotext-slide">with Persian influences, the Charminar serves as a </div>
+                <div class="infotext-slide">symbol of Hyderabad. The monument, surrounded </div>
+                <div class="infotext-slide">by bustling markets, was originally constructed to</div>
+                <div class="infotext-slide"> commemorate the end of a plague epidemic. Its strategic location </div>
+                <div class="infotext-slide">in the old city makes it a cultural and historical hub,attracting</div>
+                <div class="infotext-slide">numerous visitors for its architectural beauty and vibrant surroundings.</div>
+            </div>              
+        </div>
+    </main>
+    <script>
+        const infotextSlides = document.querySelectorAll('.infotext-slide');
+        let currentSlideIndex = 0;
+
+        // Add the active class to the first slide
+        infotextSlides[currentSlideIndex].classList.add('active');
+
+        // Set the interval to update the infotext slides every 2 seconds
+        setInterval(() => {
+            // Remove the active class from the current slide
+           // infotextSlides[currentSlideIndex].classList.remove('active');
+
+            // Increment the current slide index
+            currentSlideIndex = (currentSlideIndex + 1) % infotextSlides.length;
+
+            // Add the active class to the next slide
+            infotextSlides[currentSlideIndex].classList.add('active');
+        }, 800);
+    </script>
+</body>
+</html> 
