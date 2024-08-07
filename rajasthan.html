@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monuments</title>
+    <style>
+        body{
+    background-color: rgb(206,199,184);
+}
+        #card{
+    width: 43.7vw;
+    height: 60vh;
+    position:absolute;
+    /* z-index: -1; */
+    top: 20vh;
+    left:55vw;
+    background-color: rgb(255, 255, 255);
+}
+#play3{
+height: 100%;
+width: 100%;
+text-align: center;
+color: black;
+} 
+.near{
+background-color: rgb(206,199,184);
+width: 90%;
+height: 30%;
+}
+.near {
+background-color: rgb(206, 199, 184);
+width: 88%;
+height: 20%;
+padding: 20px;
+border-radius: 10px;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+display: flex;
+justify-content: center;
+align-items: center;
+margin-left: 2.5%;
+margin-top: 3vh;
+position: relative;
+color: black;
+}
+
+.near::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -20px;
+transform: translateY(-50%);
+border: 10px solid transparent;
+border-right-color: rgb(206, 199, 184);
+}
+a{
+text-decoration: none;
+}
+    </style>
+</head>
+<body>
+        <img src="images/map checkpoint.jpg" usemap="#image-map">
+    <div> 
+    <map name="image-map" style="float: left;">
+        <area target="_blank" alt="Taj Mahal" title="Taj Mahal" href="#" coords="319,212,11" shape="circle">
+        <area target="_blank" alt="Rani Ki Vav" title="Rani Ki Vav" href="#" coords="192,328,15" shape="circle">
+        <area target="_blank" alt="Golden Temple" title="Amritsar" href="#" coords="276,152,11" shape="circle">
+        <area target="_blank" alt="Char minar" title="Char minar" href="#" coords="338,450,11" shape="circle">
+        <area target="_blank" alt="Hawa Mahal" title="Hawa Mahal" href="#" coords="247,258,14" shape="circle">
+        <area target="_blank" alt="Khajuraho" title="Khajuraho" href="#" coords="361,313,12" shape="circle">
+        <area target="_blank" alt="Hampi" title="Hampi" href="#" coords="289,531,14" shape="circle">
+        <area target="_blank" alt="Sun Tempe of Konark" title="Sun Tempe of Konark" href="#" coords="479,414,15" shape="circle">
+    </map>
+    <div id="card">
+        <div id="play3">          
+            <h1>Here are the nearest places that you can try:</h1>
+            <a href="Hawa mahal.html">
+                <div class="near">
+                    <h2>
+                        Hawa Mahal
+                    </h2>
+                </div></a>
+            <a href="ranikivaav.html">
+                <div class="near">
+                    <h2>
+                        Rani ki vav
+                    </h2>
+                </div></a>
+</div>
+    </div></div>
+</body>
+</html>
