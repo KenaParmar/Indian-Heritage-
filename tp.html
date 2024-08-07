@@ -1,0 +1,159 @@
+<html>
+  <head>
+    <title>sign-in</title>
+    <style>
+
+      *{
+        margin: 0;
+        padding: 0;
+      }
+      #sign-in{
+        background-image: url("images/signin.png");
+          background-size: cover;
+          background-repeat: no-repeat;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          min-height: 100vh;
+          margin: 0;
+          color: #ddd;
+          overflow: hidden;
+          min-width:100%;
+      }
+
+       #sigin{
+        background-image: url('images/signin.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 80vh;
+        height: 80%;
+        width: 80%;
+        top:10%;
+        left: 10%;
+        position: absolute;
+        font-size: 60px;
+        box-shadow: 5px 5px 5px 5px #280702bb;
+        text-align: center;
+      } 
+      #signin-text{
+        float: left;
+        width: 50%;
+        height: 100%;
+       
+        color: #d6dbc3;
+        align-items: center;
+        text-align: center;
+      }
+
+      #signin-text p{
+        font-size: small;
+      }
+
+      #signin-page{
+        float: left;
+        width: 40%;
+        height: 80%;
+        margin-left: 5%;
+        margin-top: 0%;
+        background-color: #dddddd54;
+        border-radius: 20%;
+
+      }
+
+       #sign-in input[type="text"],
+       #sign-in input[type="password"]{
+        background-color: #d6dbc396;
+        border-radius: 15%;
+        color: #000000;
+        width: 300px;
+        height: 40px;
+
+        border: 0px;
+       }
+
+       #sign-in input[type="text"]:hover,
+       #sign-in input[type="password"]:hover{
+        box-shadow: 3px 3px 3px 3px rgba(255, 218, 69, 0.516);
+        transition: 0.5ms;
+        
+
+       }
+       #sign-in button[type="submit"]{
+        background-image: linear-gradient(45deg,rgb(167, 48, 72),crimson,rgb(238, 95, 0));
+        width: 200px;
+        height: 40px;
+        border-radius: 20%;
+        border: 0px;
+
+       }
+       #sign-in button[type="submit"]:hover{
+        background-color: #e4c34b80;
+        box-shadow: 3px 3px 3px 3px rgba(255, 218, 69, 0.516);
+        transition: 0.5ms;
+
+       }
+
+
+       .close-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            font-size: 60px;
+            font-family: monospace;
+        }
+
+        .close-button:hover {
+            color: #000;
+        }
+
+        @media screen and (max-width: 800px) {
+          #signin-text{
+        width: 100%;
+        height: 50%;
+        float: none;
+          }
+
+          #signin-page{
+            width: 100%;
+            height: 50%;
+            float: none;
+          }
+          
+        }
+
+    </style>
+  </head>
+  <body>
+    <div id="sign-in"> 
+       <div class="close-button" onclick="signinclose()">X</div>
+      <div id="sigin">
+        <div id="signin-text">
+          <br><br><br><br>
+          WELCOME BACK!<br>
+          <p>
+            presenting incredible india 
+          </p>
+
+
+        </div>
+        <div id="signin-page">
+          <br>
+          SIGN IN<br>
+          <form style="font-size: large;">
+            <br>
+            username:<br>
+            <input type="text" required><br><br>
+            password:<br>
+            <input type="password" required><br><br>
+            <button type="submit" >SUBMIT</button>
+
+          </form>
+        </div>
+      </div>
+      </div>
+  </body>
+</html>
